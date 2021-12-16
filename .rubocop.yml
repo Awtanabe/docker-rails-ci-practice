@@ -1,0 +1,327 @@
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+# https://github.com/discourse/discourse/blob/master/.rubocop.yml
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'db/data_schema.rb'
+    - 'db/schema.rb'
+    - 'bundle/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'frontend/node_modules/**/*'
+
+
+Naming/VariableNumber:
+  Enabled: false
+
+# Prefer &&/|| over and/or.
+Style/AndOr:
+  Enabled: true
+
+RSpec/DescribedClass:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+# Align `when` with `case`.
+Layout/CaseIndentation:
+  Enabled: true
+
+# Align comments with method definitions.
+Layout/CommentIndentation:
+  Enabled: true
+
+# No extra empty lines.
+Layout/EmptyLines:
+  Enabled: true
+
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+Style/HashSyntax:
+  Enabled: true
+
+# Two spaces, no tabs (for indentation).
+Layout/IndentationWidth:
+  Enabled: true
+
+Layout/SpaceAfterColon:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
+Layout/SpaceAroundKeyword:
+  Enabled: true
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceBeforeFirstArg:
+    Enabled: true
+
+# Defining a method with parameters needs parentheses.
+Style/MethodDefParentheses:
+  Enabled: true
+
+# Use `foo {}` not `foo{}`.
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+# Use `foo { bar }` not `foo {bar}`.
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+
+# Use `{ a: 1 }` not `{a:1}`.
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+Layout/SpaceInsideParens:
+  Enabled: true
+
+# Detect hard tabs, no hard tabs.
+Layout/IndentationStyle:
+  Enabled: true
+
+# Blank lines should not have any spaces.
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+# No trailing whitespace.
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Lint/Debugger:
+  Enabled: true
+
+Layout/BlockAlignment:
+  Enabled: true
+
+# Align `end` with the matching keyword or starting expression except for
+# assignments, where it should be aligned with the LHS.
+# Layout/EndAlignment:
+#   Enabled: true
+#   EnforcedStyleAlignWith: variable
+
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+Lint/RequireParentheses:
+  Enabled: true
+
+# Layout/MultilineMethodCallIndentation:
+#   Enabled: true
+#   EnforcedStyle: indented
+
+Layout/HashAlignment:
+  Enabled: true
+
+# TODO: 要調整
+# This cop checks that the ABC size of methods is not higher than the configured maximum.
+# Metrics/BlockLength:
+#   Enabled: true
+#   Max: 200
+
+# TODO: 要調整
+Metrics/AbcSize:
+  Max: 300
+
+Rails:
+  Enabled: true
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - heroku
+    - heroku?
+    - development
+    - test
+  Exclude:
+    - 'db/seeds.rb'
+
+# Use of the helper methods which reference instance variables.
+Rails/HelperInstanceVariable:
+  Enabled: true
+  Exclude:
+    - 'app/helpers/clinic_application_helper.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 不要なdisableコメントを指摘
+Lint/RedundantCopDisableDirective:
+  Enabled: false
+
+# クラスの長さ
+Metrics/ClassLength:
+  Max: 1000
+
+# New Version Recommendation
+Gemspec/DateAssignment: # new in 1.10
+  Enabled: false
+Gemspec/RequireMFA: # new in 1.23
+  Enabled: false
+Layout/LineEndStringConcatenationIndentation: # new in 1.18
+  Enabled: false
+Layout/SpaceBeforeBrackets: # new in 1.7
+  Enabled: false
+Lint/AmbiguousAssignment: # new in 1.7
+  Enabled: false
+Lint/AmbiguousOperatorPrecedence: # new in 1.21
+  Enabled: false
+Lint/AmbiguousRange: # new in 1.19
+  Enabled: false
+Lint/DeprecatedConstants: # new in 1.8
+  Enabled: false
+Lint/DuplicateBranch: # new in 1.3
+  Enabled: false
+Lint/DuplicateRegexpCharacterClassElement: # new in 1.1
+  Enabled: false
+Lint/EmptyBlock: # new in 1.1
+  Enabled: false
+Lint/EmptyClass: # new in 1.3
+  Enabled: false
+Lint/EmptyInPattern: # new in 1.16
+  Enabled: false
+Lint/IncompatibleIoSelectWithFiberScheduler: # new in 1.21
+  Enabled: false
+Lint/LambdaWithoutLiteralBlock: # new in 1.8
+  Enabled: false
+Lint/NoReturnInBeginEndBlocks: # new in 1.2
+  Enabled: false
+Lint/NumberedParameterAssignment: # new in 1.9
+  Enabled: false
+Lint/OrAssignmentToConstant: # new in 1.9
+  Enabled: false
+Lint/RedundantDirGlobSort: # new in 1.8
+  Enabled: false
+Lint/RequireRelativeSelfPath: # new in 1.22
+  Enabled: false
+Lint/SymbolConversion: # new in 1.9
+  Enabled: false
+Lint/ToEnumArguments: # new in 1.1
+  Enabled: false
+Lint/TripleQuotes: # new in 1.9
+  Enabled: false
+Lint/UnexpectedBlockArity: # new in 1.5
+  Enabled: false
+Lint/UnmodifiedReduceAccumulator: # new in 1.1
+  Enabled: false
+Lint/UselessRuby2Keywords: # new in 1.23
+  Enabled: false
+Security/IoMethods: # new in 1.22
+  Enabled: false
+Style/ArgumentsForwarding: # new in 1.1
+  Enabled: false
+Style/CollectionCompact: # new in 1.2
+  Enabled: false
+Style/DocumentDynamicEvalDefinition: # new in 1.1
+  Enabled: false
+Style/EndlessMethod: # new in 1.8
+  Enabled: false
+Style/HashConversion: # new in 1.10
+  Enabled: false
+Style/HashExcept: # new in 1.7
+  Enabled: false
+Style/IfWithBooleanLiteralBranches: # new in 1.9
+  Enabled: false
+Style/InPatternThen: # new in 1.16
+  Enabled: false
+Style/MultilineInPatternThen: # new in 1.16
+  Enabled: false
+Style/NegatedIfElseCondition: # new in 1.2
+  Enabled: false
+Style/NilLambda: # new in 1.3
+  Enabled: false
+Style/NumberedParameters: # new in 1.22
+  Enabled: false
+Style/NumberedParametersLimit: # new in 1.22
+  Enabled: false
+Style/OpenStructUse: # new in 1.23
+  Enabled: false
+Style/QuotedSymbols: # new in 1.16
+  Enabled: false
+Style/RedundantArgument: # new in 1.4
+  Enabled: false
+Style/RedundantSelfAssignmentBranch: # new in 1.19
+  Enabled: false
+Style/SelectByRegexp: # new in 1.22
+  Enabled: false
+Style/StringChars: # new in 1.12
+  Enabled: false
+Style/SwapValues: # new in 1.1
+  Enabled: false
+RSpec/ExcessiveDocstringSpacing: # new in 2.5
+  Enabled: false
+RSpec/IdenticalEqualityAssertion: # new in 2.4
+  Enabled: false
+RSpec/SubjectDeclaration: # new in 2.5
+  Enabled: false
+RSpec/Rails/AvoidSetupHook: # new in 2.4
+  Enabled: false
+Rails/ActiveRecordCallbacksOrder: # new in 2.7
+  Enabled: false
+Rails/AddColumnIndex: # new in 2.11
+  Enabled: false
+Rails/AfterCommitOverride: # new in 2.8
+  Enabled: false
+Rails/AttributeDefaultBlockValue: # new in 2.9
+  Enabled: false
+Rails/EagerEvaluationLogMessage: # new in 2.11
+  Enabled: false
+Rails/ExpandedDateRange: # new in 2.11
+  Enabled: false
+Rails/FindById: # new in 2.7
+  Enabled: false
+Rails/I18nLocaleAssignment: # new in 2.11
+  Enabled: false
+Rails/Inquiry: # new in 2.7
+  Enabled: false
+Rails/MailerName: # new in 2.7
+  Enabled: false
+Rails/MatchRoute: # new in 2.7
+  Enabled: false
+Rails/NegateInclude: # new in 2.7
+  Enabled: false
+Rails/Pluck: # new in 2.7
+  Enabled: false
+Rails/PluckInWhere: # new in 2.7
+  Enabled: false
+Rails/RedundantTravelBack: # new in 2.12
+  Enabled: false
+Rails/RenderInline: # new in 2.7
+  Enabled: false
+Rails/RenderPlainText: # new in 2.7
+  Enabled: false
+Rails/ShortI18n: # new in 2.7
+  Enabled: false
+Rails/SquishedSQLHeredocs: # new in 2.8
+  Enabled: false
+Rails/TimeZoneAssignment: # new in 2.10
+  Enabled: false
+Rails/UnusedIgnoredColumns: # new in 2.11
+  Enabled: false
+Rails/WhereEquals: # new in 2.9
+  Enabled: false
+Rails/WhereExists: # new in 2.7
+  Enabled: false
+Rails/WhereNot: # new in 2.8
+  Enabled: false
+
+# Todo
+Style/NumericPredicate:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: false
