@@ -3,7 +3,7 @@ version: 2.0
 jobs:
   build:
     docker:
-    - image: circleci/ruby:2.7-node-browsers
+    - image: circleci/ruby:2.7.0-buster
       environment:
         BUNDLER_VERSION: 2.1.2
         RAILS_ENV: test
@@ -22,7 +22,7 @@ jobs:
             bundle install --jobs=4 --retry=3 --path vendor/bundle
   test:
     docker:
-    - image: circleci/ruby:2.7-node-browsers
+    - image: circleci/ruby:2.7.0-buster
       environment:
         BUNDLER_VERSION: 2.1.2
         RAILS_ENV: test
