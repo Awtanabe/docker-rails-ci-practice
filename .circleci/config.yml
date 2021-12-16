@@ -33,6 +33,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: bundle install
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
           name: setup db
           command: bundle exec rake db:create && bundle exec rails db:migrate
       - run:
