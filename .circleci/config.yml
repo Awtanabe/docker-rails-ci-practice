@@ -35,6 +35,7 @@ jobs:
         MYSQL_PASSWORD: password
     steps:
       - checkout
+      - run: bundle install --path vendor/cache
       - run:
           name: setup db
           command: bundle exec rake db:create && bundle exec rails db:migrate
