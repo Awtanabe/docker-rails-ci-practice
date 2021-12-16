@@ -12,7 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+.env
 vendor/
 
 # Ignore uploaded files in development
