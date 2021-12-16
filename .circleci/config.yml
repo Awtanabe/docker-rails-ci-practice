@@ -34,6 +34,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: DB起動待機
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
           name: setup db
           command: bundle exec rake db:create 
       - run:
