@@ -32,7 +32,8 @@ jobs:
     - image: circleci/mysql:5.7 ## dbの指定
       environment:
         MYSQL_ROOT_HOST: 127.0.0.1
-        MYSQL_PASSWORD: password
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'true' ## テストだからpasswordなしでよき？
+        # MYSQL_PASSWORD: password
     steps:
       - checkout
       - run: bundle install --path vendor/cache
