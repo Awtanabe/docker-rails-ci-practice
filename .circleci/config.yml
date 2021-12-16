@@ -38,6 +38,9 @@ jobs:
       - checkout
       - run: bundle install --path vendor/cache
       - run:
+          name: Use specific database.yml # CircleCI用のデータベース設定を使う
+          command: mv config/database.yml.ci config/database.yml
+      - run:
           name: setup db
           command: bundle exec rake db:create && bundle exec rails db:migrate
       - run:
