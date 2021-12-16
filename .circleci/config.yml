@@ -24,6 +24,15 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+  lint:
+    docker:
+    - image: circleci/ruby:2.6.7-node-browsers
+    steps:
+      - checkout
+      - run: bundle install --path vendor/cache
+      - run:
+          name: run rubocop
+          command: bundle exec rubocop
   test:
     docker:
     - image: circleci/ruby:2.6.7-node-browsers
@@ -52,6 +61,9 @@ workflows:
   build_and_test:
     jobs:
       - build
+      - lint:
+         requires:
+           - build
       - test:
           requires:
             - build
