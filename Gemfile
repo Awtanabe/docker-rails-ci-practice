@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec'
+
+gem 'rails-i18n'
+gem 'enum_help'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
