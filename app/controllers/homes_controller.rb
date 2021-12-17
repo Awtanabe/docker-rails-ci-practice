@@ -8,6 +8,5 @@ class HomesController < ApplicationController
     #   puts "Closing SFTP connection..."
     #   puts "SFTP connection closed."
     # end
-
   end
 end
