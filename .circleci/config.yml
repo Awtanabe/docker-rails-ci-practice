@@ -54,7 +54,7 @@ jobs:
           command: bundle exec rake db:create && bundle exec rails db:migrate
       - run:
           name: runs test
-          command: bundle exec rspec
+          command: bundle exec rspec --bisect
 
 workflows:
   version: 2

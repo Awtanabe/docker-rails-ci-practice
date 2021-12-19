@@ -32,6 +32,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def get_products
+    products = Product.all
+    respond_to do |format|
+      format.js {
+        render json: {
+          html_data: render_to_string(partial: 'product', collection: products, as: :product)
+        }
+      }
+    end
+  end
+
   # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
