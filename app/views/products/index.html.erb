@@ -13,16 +13,15 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.is_published %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <button id="btn-click" >クリック</button>
+    <div id="target-container"></div>
+    <%# <%= render partial: 'products', collection: @products, as: :product %> %>
+
+
+    <%= form_with url: get_products_products_path, remote: true, method: :get do |form|%>
+      <%= form.submit "クリックあるよ"%>
+
+    <%end%>
   </tbody>
 </table>
 
